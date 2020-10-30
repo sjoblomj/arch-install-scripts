@@ -10,6 +10,9 @@ def install_terminator():
     cursor_blink = False
     scrollback_lines = 50000
 """
+
+    p = Path(str(Path.home()) + '/.config/terminator/')
+    p.mkdir(parents=True, exist_ok=True)
     with open(str(Path.home()) + '/.config/terminator/config', 'w+') as f:
         subprocess.Popen("echo '" + config + "'", stdout=f, stderr=f, shell=True)
 
