@@ -1,11 +1,15 @@
 # TODO: Present user with bash-friendly options
 
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+
 sudo pacman -Suy
-sudo pacman -S python-pip git
+sudo pacman -S git
+sudo pacman -S python-pip
 pip install curses-menu
 
-mkdir -p ~/tools
-git clone https://github.com/sjoblomj/arch-install-scripts ~/tools
+mkdir -p ~/tools/arch-install-scripts
+git clone https://github.com/sjoblomj/arch-install-scripts ~/tools/arch-install-scripts
 cd ~/tools/arch-install-scripts
 
 python find_scripts.py
