@@ -5,6 +5,7 @@ import subprocess
 import os
 
 programs = {
+  "bat": "cat clone with wings",
   "tree": "Draws recursive file tree",
   "ranger": "Terminal file manager",
   "thunar": "GUI file manager",
