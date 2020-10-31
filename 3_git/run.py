@@ -27,7 +27,7 @@ def install_git():
 
 
 def initial_menu():
-    menu = SelectionMenu(["Yes", "No"], "Install git and utils?", "Will install git, diff-so-fancy, set aliases and set name and email for user", False)
+    menu = SelectionMenu(["Yes", "No"], "Install git and utils?", "Will install git, diff-so-fancy, create aliases and set name and email for user", False)
     menu.show()
     if menu.selected_option == 0:
         menu.exit()

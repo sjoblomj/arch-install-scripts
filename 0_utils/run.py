@@ -38,6 +38,6 @@ def menu_fun():
         if menu.selected_option < len(programs_not_installed):
             install(programs_not_installed[menu.selected_option])
             menu_fun()
-    quit()
+    return()
 
 menu_fun()
