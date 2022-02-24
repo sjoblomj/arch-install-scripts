@@ -1,6 +1,7 @@
 from cursesmenu import *
 from cursesmenu.items import *
 from pathlib import Path
+from shutil import which
 import subprocess
 
 def get_locales():
@@ -22,20 +23,30 @@ def configure_gsimplecal(f):
 
 
 def add_locales():
-    subprocess.run(['sudo', 'vim', '/etc/locale.gen'])
+    def is_installed(program):
+        return which(program) is not None
+    editor = "vim"
+    if (is_installed("vim")):
+        editor = "vim"
+    elif (is_installed("emacs")):
+        editor = "emacs"
+    elif (is_installed("nano")):
+        editor = "nano"
+    subprocess.run(['sudo', editor, '/etc/locale.gen'])
     subprocess.run(['sudo', 'locale-gen'])
 
     home = str(Path.home())
     gsimplecal = Path(home + '/.config/gsimplecal/config')
     if gsimplecal.is_file():
-        with open(home + '/.config/gsimplecal/config', 'a+') as f:
+        with open(gsimplecal, 'a+') as f:
+            f.seek(0)
             content = f.read()
             if "force_lang" not in content:
                 configure_gsimplecal(f)
 
 def initial_menu():
     locales = get_locales()
-    menu = SelectionMenu(["Yes, open /etc/locale.gen in vim", "No"], "Add more locales?", "You have these installed: " + str(locales), False)
+    menu = SelectionMenu(["Yes, open /etc/locale.gen in text editor", "No"], "Add more locales?", "You have these installed: " + str(locales), False)
     menu.show()
     if menu.selected_option == 0:
         menu.exit()

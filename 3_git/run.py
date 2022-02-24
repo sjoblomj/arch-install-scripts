@@ -14,9 +14,8 @@ def install_git():
     subprocess.run(["git config --global alias.l2 \"log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(red)- %an%C(reset)'\""], shell=True)
 
     alias_file = str(Path.home()) + '/.zshaliases'
-    if Path(alias_file).is_file():
-        with open(alias_file, 'a+') as f:
-            subprocess.Popen("echo alias gits=\\'git status\\'", stdout=f, stderr=f, shell=True)
+    with open(alias_file, 'a+') as f:
+        subprocess.Popen("echo alias gits=\\'git status\\'", stdout=f, stderr=f, shell=True)
 
     print("Enter name (to use globally for git)")
     name = input()

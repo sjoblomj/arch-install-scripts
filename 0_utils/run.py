@@ -7,10 +7,12 @@ import os
 programs = {
   "bat": "cat clone with wings",
   "tree": "Draws recursive file tree",
+  "vim": "Terminal text editor",
+  "emacs": "Terminal text editor",
+  "nano": "Terminal text editor",
   "ranger": "Terminal file manager",
   "thunar": "GUI file manager",
   "evince": "PDF-viewer",
-  "chromium": "Web browser",
   "unzip": "Unzips files",
   "task": "Task manager"
 }
