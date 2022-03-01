@@ -4,8 +4,7 @@ sudo pacman-key --init
 sudo pacman-key --populate archlinux
 
 sudo pacman -Suy
-sudo pacman -S --needed git
-sudo pacman -S --needed python-pip
+sudo pacman -S --needed git python-pip
 pip install curses-menu
 
 mkdir -p ~/tools/arch-install-scripts

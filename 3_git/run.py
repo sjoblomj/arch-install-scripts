@@ -19,8 +19,7 @@ def add_alias(alias):
             add_line_to_file(f, source_text)
 
 def install_git():
-    subprocess.run(['sudo', 'pacman', '-S', '--needed', 'git'])
-    subprocess.run(['sudo', 'pacman', '-S', '--needed', 'diff-so-fancy'])
+    subprocess.run(['sudo', 'pacman', '-S', '--needed', 'git', 'diff-so-fancy'])
     subprocess.run(['git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"'], shell=True)
     subprocess.run(['git config --global alias.co checkout'], shell=True)
     subprocess.run(['git config --global alias.br branch'], shell=True)
