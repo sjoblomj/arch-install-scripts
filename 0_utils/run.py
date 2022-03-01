@@ -14,7 +14,12 @@ programs = {
   "thunar": "GUI file manager",
   "evince": "PDF-viewer",
   "unzip": "Unzips files",
-  "task": "Task manager"
+  "task": "Task manager",
+  "vlc": "Media Player",
+  "tldr": "Cheatsheets for console commands",
+  "gimp": "Image editor",
+  "inkscape": "Vector graphics editor",
+  "meld": "GUI diff tool"
 }
 
 def install(program):
