@@ -7,11 +7,6 @@ import os
 programs = {
   "bat": "cat clone with wings",
   "tree": "Draws recursive file tree",
-  "vim": "Terminal text editor",
-  "emacs": "Terminal text editor",
-  "nano": "Terminal text editor",
-  "ranger": "Terminal file manager",
-  "thunar": "GUI file manager",
   "evince": "PDF-viewer",
   "unzip": "Unzips files",
   "task": "Task manager",
@@ -19,7 +14,12 @@ programs = {
   "tldr": "Cheatsheets for console commands",
   "gimp": "Image editor",
   "inkscape": "Vector graphics editor",
-  "meld": "GUI diff tool"
+  "meld": "GUI diff tool",
+  "vim": "Terminal text editor",
+  "nano": "Terminal text editor",
+  "emacs": "Terminal text editor",
+  "ranger": "Terminal file manager",
+  "thunar": "GUI file manager"
 }
 
 def install(program):
