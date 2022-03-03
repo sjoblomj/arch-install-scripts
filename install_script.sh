@@ -7,8 +7,8 @@ sudo pacman -Suy
 sudo pacman -S --needed git python-pip
 pip install curses-menu
 
-mkdir -p ~/tools/arch-install-scripts
-git clone https://github.com/sjoblomj/arch-install-scripts ~/tools/arch-install-scripts
-cd ~/tools/arch-install-scripts
+mkdir -p ~/code/arch-install-scripts
+git clone https://github.com/sjoblomj/arch-install-scripts ~/code/arch-install-scripts
+cd ~/code/arch-install-scripts
 
 python find_scripts.py
