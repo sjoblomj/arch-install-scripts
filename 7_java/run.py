@@ -27,11 +27,11 @@ def install_mvntree():
     home = str(Path.home())
     subprocess.run(['mkdir', '-p', home + '/code'])
     subprocess.run(['git', 'clone', 'https://github.com/sjoblomj/mvntree.git'], cwd=(home + '/code'))
-    zshrc_file = str(Path.home()) + '/.zshrc'
+    zshrc_file = home + '/.zshrc'
     with open(zshrc_file, 'a+') as f:
         f.seek(0)
         content = f.read()
-        source_text = "source ~/code/mvntree/.mvntree"
+        source_text = "source " + home + "/code/mvntree/.mvntree"
         if source_text not in content:
             add_line_to_file(f, source_text)
 

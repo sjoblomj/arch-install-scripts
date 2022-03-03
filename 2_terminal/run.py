@@ -7,20 +7,20 @@ def add_line_to_file(f, line):
     subprocess.Popen("echo " + line, stdout=f, stderr=f, shell=True)
 
 def add_alias(alias):
-    alias_file = str(Path.home()) + '/.zshaliases'
+    home = str(Path.home())
+    alias_file = home + '/.zshaliases'
     with open(alias_file, 'a+') as f:
        add_line_to_file(f, alias)
-    zshrc_file = str(Path.home()) + '/.zshrc'
+    zshrc_file = home + '/.zshrc'
     with open(zshrc_file, 'a+') as f:
         f.seek(0)
         content = f.read()
-        source_text = "source ~/.zshaliases"
+        source_text = "source " + alias_file
         if source_text not in content:
             add_line_to_file(f, source_text)
 
 def install_ohmyzsh():
-    subprocess.run(['sudo', 'pacman', '--needed', '-S', 'curl'])
-    subprocess.run(['sh', '-c', '"$(curl', '-fsSL', 'https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'])
+    subprocess.run(['sh', '-c', '2_terminal/ohmyzsh.sh'])
     add_alias("alias ll=\\'ls -la --color=auto\\'")
     add_alias("alias l=\\'ll\\'")
 
@@ -59,4 +59,3 @@ def initial_menu(show_terminator, show_ohmyzsh):
             initial_menu(show_terminator, False)
 
 initial_menu(True, True)
-
