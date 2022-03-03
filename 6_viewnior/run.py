@@ -1,6 +1,7 @@
 from cursesmenu import *
 from cursesmenu.items import *
 from pathlib import Path
+from shutil import which
 import subprocess
 
 def install_viewnior():
@@ -12,12 +13,13 @@ def install_viewnior():
     subprocess.run(['ninja'], cwd=(home + '/code/Viewnior/builddir'))
     subprocess.run(['sudo', 'ninja', 'install'], cwd=(home + '/code/Viewnior/builddir'))
 
-def initial_menu():
-    menu = SelectionMenu(["Yes, install Viewnior"], "Install Viewnior (image viewer)?")
-    menu.show()
-    if menu.selected_option == 0:
-        menu.exit()
-        install_viewnior()
+def menu_fun():
+    if which("viewnior") is None:
+        menu = SelectionMenu(["Yes, install Viewnior"], "Install Viewnior (image viewer)?")
+        menu.show()
+        if menu.selected_option == 0:
+            menu.exit()
+            install_viewnior()
 
-initial_menu()
+menu_fun()
 

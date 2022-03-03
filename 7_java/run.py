@@ -58,6 +58,7 @@ def initial_menu():
     lst = list(filter(lambda x: x not in installed_programs, lst))
     menu = SelectionMenu(lst, "Install Java?")
     menu.show()
+    menu.exit()
 
     if menu.selected_option < len(lst):
         program = lst[menu.selected_option]
