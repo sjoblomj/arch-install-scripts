@@ -40,14 +40,15 @@ def add_line_to_file(f, line):
     subprocess.Popen("echo " + line, stdout=f, stderr=f, shell=True)
 
 def add_alias(alias):
-    alias_file = str(Path.home()) + '/.zshaliases'
+    home = str(Path.home())
+    alias_file = home + '/.zshaliases'
     with open(alias_file, 'a+') as f:
        add_line_to_file(f, alias)
-    zshrc_file = str(Path.home()) + '/.zshrc'
+    zshrc_file = home + '/.zshrc'
     with open(zshrc_file, 'a+') as f:
         f.seek(0)
         content = f.read()
-        source_text = "source ~/.zshaliases"
+        source_text = "source " + alias_file
         if source_text not in content:
             add_line_to_file(f, source_text)
 
@@ -74,4 +75,3 @@ def initial_menu():
     return()
 
 initial_menu()
-
