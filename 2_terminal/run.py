@@ -3,26 +3,8 @@ from cursesmenu.items import *
 from pathlib import Path
 import subprocess
 
-def add_line_to_file(f, line):
-    subprocess.Popen("echo " + line, stdout=f, stderr=f, shell=True)
-
-def add_alias(alias):
-    home = str(Path.home())
-    alias_file = home + '/.zshaliases'
-    with open(alias_file, 'a+') as f:
-       add_line_to_file(f, alias)
-    zshrc_file = home + '/.zshrc'
-    with open(zshrc_file, 'a+') as f:
-        f.seek(0)
-        content = f.read()
-        source_text = "source " + alias_file
-        if source_text not in content:
-            add_line_to_file(f, source_text)
-
 def install_ohmyzsh():
     subprocess.run(['sh', '-c', '2_terminal/ohmyzsh.sh'])
-    add_alias("alias ll=\\'ls -la --color=auto\\'")
-    add_alias("alias l=\\'ll\\'")
 
 
 def install_terminator():
