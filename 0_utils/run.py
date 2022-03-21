@@ -12,6 +12,7 @@ programs = {
   "task": "Task manager",
   "vlc": "Media Player",
   "tldr": "Cheatsheets for console commands",
+  "yt-dlp": "Video platform downloader",
   "gimp": "Image editor",
   "inkscape": "Vector graphics editor",
   "meld": "GUI diff tool",
