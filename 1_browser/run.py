@@ -3,6 +3,9 @@ from cursesmenu.items import *
 from shutil import which
 import subprocess
 
+def install_firefox():
+    subprocess.run(['sh', '-c', '1_browser/arkenfox.sh'])
+
 def install(program):
     subprocess.run(['sudo', 'pacman', '-S', '--needed', program])
 
@@ -17,7 +20,10 @@ def menu_fun():
         menu.show()
         menu.exit()
         if menu.selected_option < len(lst):
-            install(lst[menu.selected_option])
+            program = lst[menu.selected_option]
+            install(program)
+            if (program == "firefox"):
+                install_firefox()
             menu_fun()
     return()
 
