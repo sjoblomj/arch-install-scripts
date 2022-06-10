@@ -32,5 +32,5 @@ user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.searches", true);
 
 /* override-recipe: desktop: alter new window max sizes **/
-user_pref("privacy.window.maxInnerWidth", 1700); // 4502 [default 1600 in user.js v95]
-user_pref("privacy.window.maxInnerHeight", 1000);  // 4502 [default 900 in user.js v95]
+user_pref("privacy.window.maxInnerWidth", 2048); // 4502 [default 1600 in user.js v95]
+user_pref("privacy.window.maxInnerHeight", 1152);  // 4502 [default 900 in user.js v95]

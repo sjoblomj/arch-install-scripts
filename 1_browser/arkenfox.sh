@@ -1,12 +1,15 @@
 #!/bin/bash
 
-firefox addons.html
+firefox 1_browser/addons.html
 
-sudo pacman -S git
+sudo pacman -S --needed git
 mkdir -p ~/bin/arkenfox
+mkdir -p ~/.config/arkenfox
 cd ~/bin/arkenfox
 git clone https://github.com/arkenfox/user.js.git
 
-ln -s ~/bin/arkenfox/user.js/user.js ~/bin/arkenfox/user.js/prefsCleaner.sh ~/bin/arkenfox/user.js/updater.sh ~/.mozilla/firefox/*.default-release
-cp ~/code/arch-install-scripts/1_browser/user-overrides.js ~/.mozilla/firefox/*.default-release/user-overrides.js
+cp ~/code/arch-install-scripts/1_browser/user-overrides.js ~/bin/arkenfox/user.js/user-overrides.js
+cp ~/code/arch-install-scripts/1_browser/arkenfox-update.sh ~/.config/arkenfox/arkenfox-update.sh
+chmod +x ~/.config/arkenfox/arkenfox-update.sh
 
+echo "source $HOME/.config/arkenfox/arkenfox-update.sh" >> ~/.zshrc
