@@ -35,7 +35,7 @@ get_arkenfox_version_number() {
     echo $(git rev-parse HEAD)
 }
 is_firefox_running() {
-    $(ps aux | grep firefox | grep -v grep)
+    ps -e | grep firefox 1>/dev/null
     echo $?
 }
 
