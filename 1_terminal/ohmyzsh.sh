@@ -7,4 +7,4 @@ sed -i "s/notify-send \"\$1\" \"\$2\"/notify-send \"\$1\" \"\$2\" --icon=\"\$3\"
 
 plugins="git bgnotify sudo"
 # Set bgnotify custom command and enable more plugins
-sed -i "s/^plugins=(.*)/function bgnotify_formatted {\n  ## \$1=exit_status, \$2=command, \$3=elapsed_time\n  [ \$1 -eq 0 ] \&\& title=\"Great success\" || title=\"Command failed\"\n  [ \$1 -eq 0 ] \&\& icon=\"\~\/code\/arch-install-scripts\/2_terminal\/success.png\" || icon=\"\~\/code\/arch-install-scripts\/2_terminal\/fail.png\"\n  bgnotify \"\$title - took \${3}s\" \"\$2\" \"\$icon\";\n}\nplugins=($plugins)/g" ~/.zshrc
+sed -i "s/^plugins=(.*)/function bgnotify_formatted {\n  ## \$1=exit_status, \$2=command, \$3=elapsed_time\n  [ \$1 -eq 0 ] \&\& title=\"Great success\" || title=\"Command failed\"\n  [ \$1 -eq 0 ] \&\& icon=\"\~\/code\/arch-install-scripts\/1_terminal\/success.png\" || icon=\"\~\/code\/arch-install-scripts\/1_terminal\/fail.png\"\n  bgnotify \"\$title - took \${3}s\" \"\$2\" \"\$icon\";\n}\nplugins=($plugins)/g" ~/.zshrc

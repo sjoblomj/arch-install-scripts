@@ -1,6 +1,6 @@
 #!/bin/bash
 
-firefox 1_browser/addons.html
+firefox 2_browser/addons.html
 
 sudo pacman -S --needed git
 mkdir -p ~/bin/arkenfox
@@ -8,8 +8,8 @@ mkdir -p ~/.config/arkenfox
 cd ~/bin/arkenfox
 git clone https://github.com/arkenfox/user.js.git
 
-cp ~/code/arch-install-scripts/1_browser/user-overrides.js ~/bin/arkenfox/user.js/user-overrides.js
-cp ~/code/arch-install-scripts/1_browser/arkenfox-update.sh ~/.config/arkenfox/arkenfox-update.sh
+cp ~/code/arch-install-scripts/2_browser/user-overrides.js ~/bin/arkenfox/user.js/user-overrides.js
+cp ~/code/arch-install-scripts/2_browser/arkenfox-update.sh ~/.config/arkenfox/arkenfox-update.sh
 chmod +x ~/.config/arkenfox/arkenfox-update.sh
 
 echo "source $HOME/.config/arkenfox/arkenfox-update.sh" >> ~/.zshrc

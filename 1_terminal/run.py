@@ -4,7 +4,7 @@ from pathlib import Path
 import subprocess
 
 def install_ohmyzsh():
-    subprocess.run(['sh', '-c', '2_terminal/ohmyzsh.sh'])
+    subprocess.run(['sh', '-c', '1_terminal/ohmyzsh.sh'])
 
 
 def install_terminator():
