@@ -5,22 +5,22 @@ import subprocess
 import os
 
 programs = {
-  "bat": "cat clone with wings",
-  "tree": "Draws recursive file tree",
-  "evince": "PDF-viewer",
-  "unzip": "Unzips files",
-  "task": "Task manager",
-  "vlc": "Media Player",
-  "tldr": "Cheatsheets for console commands",
-  "yt-dlp": "Video platform downloader",
-  "gimp": "Image editor",
+  "bat"     : "cat clone with wings",
+  "tree"    : "Draws recursive file tree",
+  "evince"  : "PDF-viewer",
+  "unzip"   : "Unzips files",
+  "task"    : "Task manager",
+  "vlc"     : "Media Player",
+  "tldr"    : "Cheatsheets for console commands",
+  "yt-dlp"  : "Video platform downloader",
+  "gimp"    : "Image editor",
   "inkscape": "Vector graphics editor",
-  "meld": "GUI diff tool",
-  "vim": "Terminal text editor",
-  "nano": "Terminal text editor",
-  "emacs": "Terminal text editor",
-  "ranger": "Terminal file manager",
-  "thunar": "GUI file manager"
+  "meld"    : "GUI diff tool",
+  "vim"     : "Terminal text editor",
+  "nano"    : "Terminal text editor",
+  "emacs"   : "Terminal text editor",
+  "ranger"  : "Terminal file manager",
+  "thunar"  : "GUI file manager"
 }
 
 def install(program):

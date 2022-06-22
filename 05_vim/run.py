@@ -3,7 +3,7 @@ from cursesmenu.items import *
 import subprocess
 
 def install_vimrc():
-    subprocess.run(['sh', '-c', '8_vim/vimrc.sh'])
+    subprocess.run(['sh', '-c', '05_vim/vimrc.sh'])
 
 
 def initial_menu():

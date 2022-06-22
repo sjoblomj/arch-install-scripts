@@ -4,7 +4,7 @@ from shutil import which
 import subprocess
 
 def install_firefox():
-    subprocess.run(['sh', '-c', '2_browser/arkenfox.sh'])
+    subprocess.run(['sh', '-c', '03_browser/arkenfox.sh'])
 
 def install(program):
     subprocess.run(['sudo', 'pacman', '-S', '--needed', program])

@@ -18,7 +18,7 @@ def resolution_config_file_exists():
     return which(resolution_program) is not None and not has_run_resolution
 
 def add_keybindings():
-    subprocess.run(['sh', '-c', '9_config/add_keybindings.sh'])
+    subprocess.run(['sh', '-c', '00_config/add_keybindings.sh'])
 
 def change_resolution():
     subprocess.run([resolution_program])
