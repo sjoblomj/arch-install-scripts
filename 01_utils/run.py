@@ -19,7 +19,6 @@ programs = {
   "vim"     : "Terminal text editor",
   "nano"    : "Terminal text editor",
   "emacs"   : "Terminal text editor",
-  "ranger"  : "Terminal file manager",
   "thunar"  : "GUI file manager"
 }
 
