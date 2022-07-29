@@ -5,7 +5,7 @@ sudo pacman --needed -S ranger ffmpegthumbnailer curl
 pip3 install ueberzug # For previewing images
 # Use faster libraries for previewing images
 pip3 uninstall -y pillow
-CC="cc -maxv2" pip3 install -U --force-reinstall pillow-simd
+CC="cc -mavx2" pip3 install -U --force-reinstall pillow-simd
 
 ranger --copy-config=rc
 sed -i "s|set show_hidden false|set show_hidden true|g" ~/.config/ranger/rc.conf
