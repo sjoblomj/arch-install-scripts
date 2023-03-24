@@ -1,6 +1,6 @@
 #!/bin/bash
 
-firefox 04_browser/addons.html
+firefox addons.html
 
 sudo pacman -S --needed git
 mkdir -p ~/bin/arkenfox
@@ -12,4 +12,6 @@ cp ~/code/arch-install-scripts/04_browser/user-overrides.js ~/bin/arkenfox/user.
 cp ~/code/arch-install-scripts/04_browser/arkenfox-update.sh ~/.config/arkenfox/arkenfox-update.sh
 chmod +x ~/.config/arkenfox/arkenfox-update.sh
 
-echo "source $HOME/.config/arkenfox/arkenfox-update.sh" >> ~/.zshrc
+if ! grep -sq "arkenfox-update.sh" ~/.zshrc ; then
+    echo 'source $HOME/.config/arkenfox/arkenfox-update.sh' >> ~/.zshrc
+fi

@@ -2,7 +2,7 @@
 
 sudo pacman --needed -S ranger ffmpegthumbnailer curl
 
-pip3 install ueberzug # For previewing images
+sudo pacman --needed -S ueberzug # For previewing images
 # Use faster libraries for previewing images
 pip3 uninstall -y pillow
 CC="cc -mavx2" pip3 install -U --force-reinstall pillow-simd
