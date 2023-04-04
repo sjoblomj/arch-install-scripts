@@ -1,7 +1,7 @@
 #!/bin/bash
 
-title="Install Zelda and Gamepad config?"
-alt1="Yes, install Zelda and Gamepad config"
+title="Install Games and configure them?"
+alt1="Install Zelda and Gamepad config"
 esc="Cancel"
 alts="${alt1}\n${esc}"
 
@@ -15,7 +15,7 @@ while true; do
 
 	if [ "${res}" = "${alt1}" ]; then
 	    alts=$(echo "${alts}" | sed "s/\\${alt1}\\\\n//g")
-	    ./install.sh
+	    ./zelda.sh
 	else
 	    exit 0
 	fi
