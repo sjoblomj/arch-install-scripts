@@ -2,9 +2,10 @@
 
 title="Update system configuration?"
 alt1="Add keybindings to Openbox (Will cause screen to flicker)"
-alt2="Change screen resolution (Opening external program)"
+alt2="Configure tint2 panel (Will cause screen to flicker)"
+alt3="Change screen resolution (Opening external program)"
 esc="Cancel"
-alts="${alt1}\n${alt2}\n${esc}"
+alts="${alt1}\n${alt2}\n${alt3}\n${esc}"
 
 while true; do
 	if [ "${alts}" = "${esc}" ]; then
@@ -19,6 +20,9 @@ while true; do
 	    ./add_keybindings.sh
 	elif [ "${res}" = "${alt2}" ]; then
 	    alts=$(echo "${alts}" | sed "s/\\${alt2}\\\\n//g")
+	    ./change_panel.sh
+	elif [ "${res}" = "${alt3}" ]; then
+	    alts=$(echo "${alts}" | sed "s/\\${alt3}\\\\n//g")
 	    ./change_resolution.sh
 	else
 	    exit 0
