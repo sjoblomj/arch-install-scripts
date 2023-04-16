@@ -32,7 +32,8 @@ if [ ! -d $HOME/.local/share/stratagus/data.Wargus ]; then
 fi
 
 
-# Convert MIDI files to WAV manually
+# MIDI drivers are needed to play music, but it's unclear how to install those drivers on Arch Linux.
+# Convert MIDI files to WAV manually; the game looks for WAVs as a fallback.
 sudo pacman -S --needed timidity++ fluidsynth
 if ! grep -sq "soundfont /usr/share/soundfonts/FluidR3_GM.sf2" /etc/timidity/timidity.cfg ; then
     sudo sed -i -r "s|^# soundfont (.*)|# soundfont \1\nsoundfont /usr/share/soundfonts/FluidR3_GM.sf2|" /etc/timidity/timidity.cfg
@@ -41,7 +42,7 @@ fi
 if ! ls $HOME/.local/share/stratagus/data.Wargus/music/*.wav &> /dev/null ; then
     echo "Converting MIDI files to WAV"
     cd $HOME/.local/share/stratagus/data.Wargus/music
-    find . -exec timidity --output-mode=w --output-file={}.wav {} \;
+    find . -name '*.mid' -exec timidity --output-mode=w --output-file={}.wav {} \;
     for file in *.mid.wav; do
         mv -- "$file" "${file%.mid.wav}.wav"
     done
