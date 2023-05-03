@@ -2,6 +2,7 @@
 
 sudo pacman -S --needed terminator
 if ! grep -sq "cursor_blink" $HOME/.config/terminator/config ; then
+    mkdir -p $HOME/.config/terminator
     echo "[profiles]" >> $HOME/.config/terminator/config
     echo "  [[default]]" >> $HOME/.config/terminator/config
     echo "    cursor_blink = False" >> $HOME/.config/terminator/config

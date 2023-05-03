@@ -15,4 +15,5 @@ mkdir -p $HOME/code/arch-install-scripts
 git clone https://github.com/sjoblomj/arch-install-scripts $HOME/code/arch-install-scripts
 cd $HOME/code/arch-install-scripts
 
+source $HOME/.zshrc
 ./find_scripts.sh
