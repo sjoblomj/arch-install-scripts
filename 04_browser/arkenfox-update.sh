@@ -4,8 +4,8 @@ olddir=$(pwd)
 
 perform_update() {
     cd $HOME/bin/arkenfox/user.js
-    cp user-overrides.js prefsCleaner.sh updater.sh ~/.mozilla/firefox/*.default-release
-    cd ~/.mozilla/firefox/*.default-release
+    cp user-overrides.js prefsCleaner.sh updater.sh $HOME/.mozilla/firefox/*.default-release
+    cd $HOME/.mozilla/firefox/*.default-release
     ./updater.sh -s 1>/dev/null
     ./prefsCleaner.sh -s 1>/dev/null
     rm updater.sh prefsCleaner.sh user-overrides.js

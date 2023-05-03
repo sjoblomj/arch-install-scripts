@@ -3,15 +3,15 @@
 firefox addons.html
 
 sudo pacman -S --needed git
-mkdir -p ~/bin/arkenfox
-mkdir -p ~/.config/arkenfox
-cd ~/bin/arkenfox
+mkdir -p $HOME/bin/arkenfox
+mkdir -p $HOME/.config/arkenfox
+cd $HOME/bin/arkenfox
 git clone https://github.com/arkenfox/user.js.git
 
-cp user-overrides.js ~/bin/arkenfox/user.js/user-overrides.js
-cp arkenfox-update.sh ~/.config/arkenfox/arkenfox-update.sh
-chmod +x ~/.config/arkenfox/arkenfox-update.sh
+cp user-overrides.js $HOME/bin/arkenfox/user.js/user-overrides.js
+cp arkenfox-update.sh $HOME/.config/arkenfox/arkenfox-update.sh
+chmod +x $HOME/.config/arkenfox/arkenfox-update.sh
 
-if ! grep -sq "arkenfox-update.sh" ~/.zshrc ; then
-    echo 'source $HOME/.config/arkenfox/arkenfox-update.sh' >> ~/.zshrc
+if ! grep -sq "arkenfox-update.sh" $HOME/.zshrc ; then
+    echo 'source $HOME/.config/arkenfox/arkenfox-update.sh' >> $HOME/.zshrc
 fi
