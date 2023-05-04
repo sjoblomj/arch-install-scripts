@@ -14,3 +14,7 @@ alias="alias clean-docker='if [[ \$(docker ps -qa) ]]; then docker stop \$(docke
 if ! grep -sq "alias clean-docker=" $HOME/.zshaliases ; then
     echo "${alias}" >> $HOME/.zshaliases
 fi
+
+if ! grep -sq "source \$HOME/.zshaliases" $HOME/.zshrc ; then
+    echo "source \$HOME/.zshaliases" >> $HOME/.zshrc
+fi
