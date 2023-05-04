@@ -12,6 +12,7 @@ perform_update() {
 }
 
 write_config_file_data() {
+    cd $HOME/bin/arkenfox/user.js
     printf "%s;%s\n" "$(get_firefox_version_number)" "$(get_arkenfox_version_number)" > $HOME/.config/arkenfox/arkenfox.lastupdated
 }
 read_config_file_data() {
