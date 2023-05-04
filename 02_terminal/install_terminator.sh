@@ -7,4 +7,6 @@ if ! grep -sq "cursor_blink" $HOME/.config/terminator/config ; then
     echo "  [[default]]" >> $HOME/.config/terminator/config
     echo "    cursor_blink = False" >> $HOME/.config/terminator/config
     echo "    scrollback_lines = 50000" >> $HOME/.config/terminator/config
+    echo "    use_system_font = False" >> $HOME/.config/terminator/config
+    echo "    font = Source Code Pro 16" >> $HOME/.config/terminator/config
 fi
