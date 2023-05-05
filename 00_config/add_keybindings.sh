@@ -5,7 +5,7 @@ if [ -f $targetfile ] && ! grep -q "keybind key=\"S-A-Tab\"" $targetfile ; then
 	awk -i inplace '
 	{
 		if ($0 ~ "keybind key=\"S-A-Return\"") {
-			gsub("C-space", "W-Return", $0);
+			gsub("S-A-Return", "W-Return", $0);
 		}
 		 if ($0 ~ "keybind key=\"C-space\"") {
 			gsub("C-space", "C-A-space", $0);
