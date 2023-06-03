@@ -4,7 +4,7 @@ olddir=$(pwd)
 
 perform_update() {
     cd $HOME/bin/fzf
-    ./install
+    ./install --key-bindings --completion --update-rc
 }
 
 write_config_file_data() {
@@ -49,7 +49,8 @@ if [ $(is_time_to_check_update) -eq 0 ]; then
         : # Do nothing
     else
         if $(check_if_fzf_was_updated) ; then
-            $(perform_update)
+            output=$(perform_update)
+            printf "$output\n\n"
             echo "Updated and applied fzf updates"
         else
             echo "No fzf updates available"
