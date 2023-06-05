@@ -1,0 +1,13 @@
+<keymap version="1" name="syzygy" parent="Eclipse">
+  <action id="CloseActiveTab" />
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="ctrl f4" />
+    <keyboard-shortcut first-keystroke="ctrl w" />
+  </action>
+  <action id="ContextHelp" />
+  <action id="Find">
+    <keyboard-shortcut first-keystroke="ctrl #10000d6" />
+  </action>
+  <action id="UpdateRunningApplication" />
+  <action id="UsageFiltering.WriteAccess" />
+</keymap>
