@@ -16,7 +16,7 @@ sed -i -r "s/^background_color = #212121 100/background_color = #fa6607 100/" $H
 sed -i -r "s/^menu_valign( *)=.*/menu_valign\1= top/" $HOME/.config/jgmenu/jgmenurc
 
 # Increase application menu font size if needed
-sed -i -r "s/^font( *)=.* (12px)/font\1=\2 16px/" $HOME/.config/jgmenu/jgmenurc
+sed -i -r "s/^font( *)=(.*) (12px)/font\1=\2 16px/" $HOME/.config/jgmenu/jgmenurc
 
 echo "Restarting tint2 ..."
 al-tint2restart 2>&1 /dev/null
