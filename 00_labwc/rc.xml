@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <core>
+    <gap>10</gap>
+  </core>
+
+  <theme>
+    <name></name>
+    <cornerRadius>8</cornerRadius>
+    <font name="sans" size="10" />
+  </theme>
+
+  <keyboard>
+    <default />
+    <keybind key="A-Left" />
+    <keybind key="A-Right" />
+    <keybind key="A-Up" />
+    <keybind key="A-Down" />
+    <keybind key="W-Return">
+      <action name="Execute" command="terminator" />
+    </keybind>
+    <keybind key="W-X">
+      <action name="Execute" command="fuzzel" />
+    </keybind>
+    <keybind key="W-Up">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-Down">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-Space">
+      <action name="ShowMenu" menu="root-menu" />
+    </keybind>
+    <keybind key="A-Space">
+      <action name="ShowMenu" menu="client-menu" />
+    </keybind>
+    <keybind key="XF86_MonBrightnessUp">
+      <action name="Execute" command="brightnessctl set +10%" />
+    </keybind>
+    <keybind key="XF86_MonBrightnessDown">
+      <action name="Execute" command="brightnessctl set 10%-" />
+    </keybind>
+  </keyboard>
+
+</labwc_config>

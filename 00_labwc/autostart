@@ -1,0 +1,12 @@
+# Launch the panel
+waybar >/dev/null 2>&1 &
+
+# Set desktop background
+swaybg -m fit -i $HOME/.config/background.jpg &
+
+# Lock screen after 5 minutes; turn off display after another 5 minutes.
+swayidle -w \
+	timeout 300 'chayang && swaylock -f -c 000000' \
+	timeout 600 'wlopm --off \*' \
+	resume 'wlopm --on \*' \
+	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
