@@ -34,6 +34,8 @@ sudo pacman -S --needed pavucontrol
 
 # Application launcher
 sudo pacman -S --needed fuzzel
+mkdir -p $HOME/.config/fuzzel
+cp fuzzel_config $HOME/.config/fuzzel/fuzzel.ini
 
 
 # Wallpaper
