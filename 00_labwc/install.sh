@@ -13,6 +13,7 @@ meson compile -C build/
 mkdir -p $HOME/.config/labwc
 cd $HOME/code/arch-install-scripts/00_labwc
 cp autostart environment menu.xml rc.xml $HOME/.config/labwc
+cp .zprofile $HOME/
 
 
 # Status bar
