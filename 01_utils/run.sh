@@ -11,7 +11,9 @@ if [ "$selection" != "" ]; then
         curl https://upload.wikimedia.org/wikipedia/commons/e/e6/VLC_Icon.svg -o $HOME/.local/share/icons/hicolor/scalable/apps/vlc.svg
     fi
     if [[ "$selections" =~ "evince" ]]; then
-        sudo cp /usr/share/applications/org.gnome.Evince.desktop /usr/share/applications/evince.desktop
+        if [ -f /usr/share/applications/org.gnome.Evince.desktop ] && [ ! -f /usr/share/applications/evince.desktop ]; then
+            sudo cp /usr/share/applications/org.gnome.Evince.desktop /usr/share/applications/evince.desktop
+        fi
     fi
     if [[ "$selection" =~ "transmission-qt" ]]; then
         curl https://upload.wikimedia.org/wikipedia/commons/4/46/Transmission_Icon.svg -o /usr/share/icons/hicolor/scalable/apps/transmission.svg
