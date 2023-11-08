@@ -11,7 +11,7 @@ cd $HOME/bin/labwc
 meson setup build/
 meson compile -C build/
 mkdir -p $HOME/.config/labwc
-cd $HOME/code/arch-install-scripts/00_labwc
+cd $HOME/code/arch-install-scripts/00_config
 cp autostart environment menu.xml rc.xml themerc-override $HOME/.config/labwc
 cp .zprofile $HOME/
 
@@ -19,6 +19,8 @@ cp .zprofile $HOME/
 # Status bar
 sudo pacman -S --needed otf-font-awesome waybar
 mkdir -p $HOME/.config/waybar
+cp waybar_config $HOME/.config/waybar/config
+cp waybar_style.css $HOME/.config/waybar/style.css
 
 
 # Screen brightness control
