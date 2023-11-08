@@ -12,7 +12,7 @@ if [ "$selections" != "" ]; then
     for s in $selections; do
         filename=${s%-*}
         if [ ! -f "/usr/share/icons/hicolor/scalable/apps/${filename}.svg" ]; then
-            cp "${filename}.svg" "/usr/share/icons/hicolor/scalable/apps/${filename}.svg"
+            sudo cp "${filename}.svg" "/usr/share/icons/hicolor/scalable/apps/${filename}.svg"
         fi
     done
 fi

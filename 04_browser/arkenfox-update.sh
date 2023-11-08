@@ -3,7 +3,7 @@
 olddir=$(pwd)
 
 perform_update() {
-    cd $HOME/bin/arkenfox/user.js
+    cd $HOME/bin/arkenfox
     cp user-overrides.js prefsCleaner.sh updater.sh $HOME/.mozilla/firefox/*.default-release
     cd $HOME/.mozilla/firefox/*.default-release
     ./updater.sh -s 1>/dev/null
@@ -32,7 +32,7 @@ get_firefox_version_number() {
     echo $(firefox --version)
 }
 get_arkenfox_version_number() {
-    cd $HOME/bin/arkenfox/user.js
+    cd $HOME/bin/arkenfox
     echo $(git rev-parse HEAD)
 }
 is_firefox_running() {
@@ -41,7 +41,7 @@ is_firefox_running() {
 }
 
 check_if_arkenfox_was_updated() {
-    cd $HOME/bin/arkenfox/user.js
+    cd $HOME/bin/arkenfox
     git pull 1>/dev/null
     prev_arkenfox_update=$(get_last_updated_arkenfox_version)
     ref=$(get_arkenfox_version_number)
