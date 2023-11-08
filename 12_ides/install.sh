@@ -18,4 +18,11 @@ if [ ! -d $HOME/bin/${product_dir}-* ]; then
     cp options_keymapFlags.xml "$datadir/options/keymapFlags.xml"
     cp options_linux_keymap.xml "$datadir/options/linux/keymap.xml"
     cp syzygy.xml "$datadir/keymaps"
+
+    # Create Desktop Entry and icons
+    prod="${product_dir,,}"
+    sudo cp -s $HOME/bin/${product_dir}-*/bin/${prod}.sh /usr/local/bin/${prod}
+    sudo cp $HOME/bin/${product_dir}-*/bin/${prod}.svg /usr/share/icons/hicolor/scalable/apps/jetbrains-${prod}.svg
+    sudo cp $HOME/bin/${product_dir}-*/bin/${prod}.png /usr/share/icons/hicolor/128x128/apps/jetbrains-${prod}.svg
+    sudo cp jetbrains-${prod}.desktop /usr/share/applications
 fi

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=CLion
+Comment=A cross-platform IDE for C and C++
+Exec=clion
+Icon=jetbrains-clion
+Categories=Development;IDE
+Keywords=Development;IDE;C;C++

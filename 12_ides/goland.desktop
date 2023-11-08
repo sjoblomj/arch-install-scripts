@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=GoLand
+Comment=A Go IDE with extended support for JavaScript, TypeScript, and databases
+Exec=goland
+Icon=jetbrains-goland
+Categories=Development;IDE
+Keywords=Development;IDE;Go

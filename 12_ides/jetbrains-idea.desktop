@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=IntelliJ IDEA
+Comment=IDE for developing computer software written in Java, Kotlin, Groovy, and other JVM-based languages
+Exec=idea
+Icon=jetbrains-idea
+Categories=Development;IDE
+Keywords=Development;IDE;Java;Kotlin;Groovy;JVM
