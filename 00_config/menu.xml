@@ -29,6 +29,7 @@
 				</action>
 			</item>
 		</menu>
+		<separator />
 		<item label="Exit labwc">
 			<action name="Exit" />
 		</item>

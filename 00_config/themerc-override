@@ -1,10 +1,15 @@
 # window border
-window.active.border.color: #777777
-window.inactive.border.color: #777777
+window.active.border.color: #717171
+window.inactive.border.color: #717171
 
 # window titlebar background
-window.active.title.bg.color: #666666
-window.inactive.title.bg.color: #888888
+window.active.title.bg.color: #2b2b2b
+window.inactive.title.bg.color: #4b4b4b
+
+# window titlebar text
+window.active.label.text.color: #ffffff
+window.inactive.label.text.color: #ffffff
+window.label.text.justify: center
 
 # menu
 menu.items.bg.color: #000000
@@ -15,7 +20,7 @@ menu.separator.color: #888888
 
 # on screen display (window-cycle dialog)
 osd.bg.color: #000000
-osd.border.color: #777777
+osd.border.color: #717171
 osd.border.width: 1
 osd.label.text.color: #bbbbbb
 osd.window-switcher.width: 1024
