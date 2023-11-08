@@ -18,7 +18,7 @@ cp .zprofile $HOME/
 
 
 # Status bar
-sudo pacman -S --needed otf-font-awesome waybar
+sudo pacman -S --needed waybar
 mkdir -p $HOME/.config/waybar
 cp waybar_config $HOME/.config/waybar/config
 cp waybar_style.css $HOME/.config/waybar/style.css
@@ -49,7 +49,7 @@ curl https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Expl0393_-_Flickr
 
 
 # Extra fonts
-sudo pacman -S --needed ttf-fira-code
+sudo pacman -S --needed otf-font-awesome cantarell-fonts adobe-source-code-pro-fonts ttf-dejavu ttf-liberation noto-fonts ttf-fira-code
 
 
 # Terminal clipboard util
