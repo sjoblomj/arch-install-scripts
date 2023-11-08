@@ -25,4 +25,5 @@ if [ ! -d $HOME/bin/${product_dir}-* ]; then
     sudo cp $HOME/bin/${product_dir}-*/bin/${prod}.svg /usr/share/icons/hicolor/scalable/apps/jetbrains-${prod}.svg
     sudo cp $HOME/bin/${product_dir}-*/bin/${prod}.png /usr/share/icons/hicolor/128x128/apps/jetbrains-${prod}.svg
     sudo cp jetbrains-${prod}.desktop /usr/share/applications
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor/
 fi
