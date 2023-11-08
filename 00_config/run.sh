@@ -60,6 +60,12 @@ sudo pacman -S --needed wl-clipboard
 sudo pacman -S --needed grim slurp swappy
 
 
+# Notifications
+sudo pacman -S --needed mako
+mkdir -p $HOME/.config/mako
+cp mako_config $HOME/.config/mako/config
+
+
 # Screen locking
 sudo pacman -S --needed swaylock swayidle
 git clone https://git.sr.ht/\~emersion/chayang $HOME/bin/chayang
@@ -71,9 +77,3 @@ git clone https://git.sr.ht/\~leon_plickat/wlopm $HOME/bin/wlopm
 cd $HOME/bin/wlopm
 make
 sudo make install
-
-
-# Notifications
-sudo pacman -S --needed mako
-mkdir -p $HOME/.config/mako
-cp mako_config $HOME/.config/mako/config
