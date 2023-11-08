@@ -7,4 +7,12 @@ if [ "$selections" != "" ]; then
     if [[ "$selections" =~ "firefox" ]]; then
         ./arkenfox.sh
     fi
+
+    # Add svg icons to system if needed
+    for s in $selections; do
+        filename=${s%-*}
+        if [ ! -f "/usr/share/icons/hicolor/scalable/apps/${filename}.svg" ]; then
+            cp "${filename}.svg" "/usr/share/icons/hicolor/scalable/apps/${filename}.svg"
+        fi
+    done
 fi
