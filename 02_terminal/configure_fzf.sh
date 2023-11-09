@@ -4,7 +4,7 @@ mkdir -p $HOME/.config/fzf
 cp fzf-update.sh $HOME/.config/fzf
 
 if [ -f $HOME/.fzf.bash ] && [ ! -f $HOME/.fzf.zsh ]; then
-    mv $HOME/.fzf.bash $HOME/.fzf.zsh
+    cp $HOME/.fzf.bash $HOME/.fzf.zsh
     sed -i 's/.bash"$/.zsh"/g' $HOME/.fzf.zsh
 fi
 if ! grep -sq ".fzf.zsh" $HOME/.zshrc ; then
