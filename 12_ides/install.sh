@@ -22,8 +22,7 @@ if [ ! -d $HOME/bin/${product_dir}-* ]; then
     # Create Desktop Entry and icons
     prod="${product_dir,,}"
     sudo cp -s $HOME/bin/${product_dir}-*/bin/${prod}.sh /usr/local/bin/${prod}
-    sudo cp $HOME/bin/${product_dir}-*/bin/${prod}.svg /usr/share/icons/hicolor/scalable/apps/jetbrains-${prod}.svg
-    sudo cp $HOME/bin/${product_dir}-*/bin/${prod}.png /usr/share/icons/hicolor/128x128/apps/jetbrains-${prod}.svg
     sudo cp jetbrains-${prod}.desktop /usr/share/applications
-    sudo gtk-update-icon-cache /usr/share/icons/hicolor/
+    mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps
+    cp $HOME/bin/${product_dir}-*/bin/${prod}.svg $HOME/.local/share/icons/hicolor/scalable/apps/jetbrains-${prod}.svg
 fi
