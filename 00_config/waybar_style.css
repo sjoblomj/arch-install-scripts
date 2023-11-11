@@ -135,10 +135,6 @@ label:focus {
     background-color: #ff0000;
 }
 
-#tray {
-    background-color: #2980b9;
-}
-
 #tray > .passive {
     -gtk-icon-effect: dim;
 }

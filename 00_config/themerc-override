@@ -7,13 +7,17 @@ window.active.title.bg.color: #2b2b2b
 window.inactive.title.bg.color: #4b4b4b
 
 # window titlebar text
-window.active.label.text.color: #ffffff
-window.inactive.label.text.color: #ffffff
+window.active.label.text.color: #cccccc
+window.inactive.label.text.color: #cccccc
 window.label.text.justify: center
+
+# window buttons
+window.active.button.unpressed.image.color: #cccccc
+window.inactive.button.unpressed.image.color: #cccccc
 
 # menu
 menu.items.bg.color: #000000
-menu.items.text.color: #bbbbbb
+menu.items.text.color: #cccccc
 menu.items.active.bg.color: #333333
 menu.items.active.text.color: #fa6607
 menu.separator.color: #888888
@@ -22,5 +26,5 @@ menu.separator.color: #888888
 osd.bg.color: #000000
 osd.border.color: #717171
 osd.border.width: 1
-osd.label.text.color: #bbbbbb
+osd.label.text.color: #cccccc
 osd.window-switcher.width: 1024
