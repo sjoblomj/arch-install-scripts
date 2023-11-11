@@ -18,19 +18,18 @@ fi
 cd $prevdir
 
 if [ ! -d $HOME/games/zelda-a_link_to_the_past ]; then
+    mkdir -p $HOME/games/zelda-a_link_to_the_past
+    git clone https://github.com/snesrev/zelda3 $HOME/games/zelda-a_link_to_the_past/zelda3
+
     sudo pacman -S --needed unzip
     echo ""
     echo "Enter password to unzip the Zelda ROM"
-    unzip zelda3.zip
-    mkdir -p $HOME/games/zelda-a_link_to_the_past
-    mv zelda3.sfc $HOME/games/zelda-a_link_to_the_past
-    cd $HOME/games/zelda-a_link_to_the_past
-    git clone https://github.com/snesrev/zelda3
-    mv zelda3.sfc zelda3/tables
-    cd zelda3
-    python3 -m ensurepip
-    python3 -m pip install -r requirements.txt
-    sudo pacman -S --needed sdl2
+    unzip zelda3.zip -d $HOME/games/zelda-a_link_to_the_past/zelda3
+
+    cd $HOME/games/zelda-a_link_to_the_past/zelda3
+    #python3 -m ensurepip
+    #python3 -m pip install -r requirements.txt
+    sudo pacman -S --needed sdl2 python-pillow python-yaml
     make
 
     sed -i "s/^Autosave = 0/Autosave = 1/" $HOME/games/zelda-a_link_to_the_past/zelda3/zelda3.ini
