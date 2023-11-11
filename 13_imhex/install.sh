@@ -23,5 +23,8 @@ if [ ! -d ImHex ]; then
         -DCMAKE_OBJCXX_COMPILER_LAUNCHER=ccache   \
         ..
     sudo make -j 4 install
+
+    mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps/
+    cp ../resources/icon.svg $HOME/.local/share/icons/hicolor/scalable/apps/imhex.svg
 fi
 cd $prevdir
