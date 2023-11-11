@@ -10,3 +10,5 @@ if ! grep -sq "cursor_blink" $HOME/.config/terminator/config ; then
     echo "    use_system_font = False" >> $HOME/.config/terminator/config
     echo "    font = Source Code Pro 16" >> $HOME/.config/terminator/config
 fi
+mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps
+cp /usr/share/icons/hicolor/scalable/apps/terminator.svg $HOME/.local/share/icons/hicolor/scalable/apps

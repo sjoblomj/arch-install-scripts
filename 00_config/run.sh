@@ -29,7 +29,10 @@ sudo pacman -S --needed brightnessctl
 
 
 # Volume settings
+sudo pacman -S --needed curl
 sudo pacman -S --needed pavucontrol
+mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps
+curl https://upload.wikimedia.org/wikipedia/commons/4/44/Gnome-multimedia-volume-control.svg -o $HOME/.local/share/icons/hicolor/scalable/apps/multimedia-volume-control.svg
 
 
 # Locale for calendar
@@ -43,7 +46,6 @@ cp fuzzel_config $HOME/.config/fuzzel/fuzzel.ini
 
 
 # Wallpaper
-sudo pacman -S --needed curl
 sudo pacman -S --needed swaybg
 curl https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Expl0393_-_Flickr_-_NOAA_Photo_Library.jpg/800px-Expl0393_-_Flickr_-_NOAA_Photo_Library.jpg -o $HOME/.config/background.jpg
 
