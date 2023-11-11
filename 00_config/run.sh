@@ -6,10 +6,10 @@ mkdir -p $HOME/.config
 sudo pacman -S --needed git
 sudo pacman -S --needed wlroots wayland libinput libxkbcommon libxml2 cairo pango glib2
 sudo pacman -S --needed meson ninja gcc wayland-protocols
-sudo pacman -S --needed polkit xorg-xwayland
+sudo pacman -S --needed polkit
 git clone https://github.com/labwc/labwc.git $HOME/bin/labwc
 cd $HOME/bin/labwc
-meson setup build/
+meson setup -Dxwayland=disabled build/
 meson compile -C build/
 mkdir -p $HOME/.config/labwc
 cd $HOME/code/arch-install-scripts/00_config
