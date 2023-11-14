@@ -77,3 +77,10 @@ git clone https://git.sr.ht/\~leon_plickat/wlopm $HOME/bin/wlopm
 cd $HOME/bin/wlopm
 make
 sudo make install
+
+
+# Mouse speed
+# Can be set **for all devices** by installing libinput-config
+# from https://gitlab.com/warningnonpotablewater/libinput-config/
+# and then setting
+# echo "speed=2" | sudo tee /etc/libinput.conf
