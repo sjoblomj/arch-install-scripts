@@ -3,13 +3,27 @@ mkdir -p $HOME/bin
 mkdir -p $HOME/.config
 
 # labwc
+alt1="Yes, install Xwayland"
+alt2="No, don't install Xwayland"
+xwayland="-Dxwayland=disabled"
+res=$(printf "${alt1}\n${alt2}" | fzf --tac --margin=4 --border --border-label="Install Xwayland?"  --header='
+Wayland is the replacement of the X Window System, but not all applications are Wayland ready.
+Xwayland acts as a workaround, allowing X programs to continue to work under Wayland.
+Xwayland is a complete X11 server, just like Xorg is, but instead of driving the displays and
+opening input devices, it acts as a Wayland client. Notable programs that do not work without
+Xwayland are GIMP 2.x and the Jetbrains IDEs (https://youtrack.jetbrains.com/issue/JBR-3206)')
+if [ "${res}" = "${alt1}" ]; then
+    xwayland=""
+    sudo pacman -S --needed xwayland
+fi
+
 sudo pacman -S --needed git
 sudo pacman -S --needed wlroots wayland libinput libxkbcommon libxml2 cairo pango glib2
 sudo pacman -S --needed meson ninja gcc wayland-protocols
 sudo pacman -S --needed polkit
 git clone https://github.com/labwc/labwc.git $HOME/bin/labwc
 cd $HOME/bin/labwc
-meson setup -Dxwayland=disabled build/
+meson setup "${xwayland}" build/
 meson compile -C build/
 mkdir -p $HOME/.config/labwc
 cd $HOME/code/arch-install-scripts/00_config
