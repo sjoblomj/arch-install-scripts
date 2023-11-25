@@ -6,6 +6,11 @@ sudo pacman-key --populate archlinux
 sudo pacman -Suy
 sudo pacman -S --needed git
 
+if [ -d ".git/hooks" ]; then
+  cp commit-msg .git/hooks
+  chmod +x .git/hooks/commit-msg
+fi
+
 mkdir -p $HOME/bin/fzf
 git clone https://github.com/junegunn/fzf.git $HOME/bin/fzf
 cd $HOME/bin/fzf

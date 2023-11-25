@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# A hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+
+used_emojis=$(git log --pretty=format:"%s" | awk 'NF>1{print $NF}')
+commit_emoji=$(cat $1 | awk 'NF>1{print $NF}')
+
+if [[ $(sed 's/[a-zA-Z0-9+\-_., ;:]//g' $1) == "" ]]; then
+    echo -e >&2 "\e[1;33mWarning: It looks like no emoji was used\e[0m"
+fi
+if [ "${used_emojis#*"$commit_emoji"}" != "$used_emojis" ]; then
+    echo -e >&2 "\e[1;31mError: The emoji in the commit message has already been used! Unable to commit.\e[0m"
+    exit 1
+fi
