@@ -2,16 +2,16 @@
 
 mkdir -p $HOME/bin
 prevdir=$(pwd)
-cd $HOME/bin
+cd $HOME/bin || exit 1
 if [ ! -d ImHex ]; then
     git clone https://github.com/WerWolv/ImHex --recurse-submodules
-    cd ImHex
+    cd ImHex || exit 1
 
-    sudo pacman -S ccache
+    sudo pacman -S --needed ccache
     sudo ./dist/get_deps_archlinux.sh
 
     mkdir -p build
-    cd build
+    cd build || exit 1
     CC=gcc CXX=g++ cmake                          \
         -DCMAKE_BUILD_TYPE=Release                \
         -DCMAKE_INSTALL_PREFIX="/usr" 	          \
@@ -27,4 +27,4 @@ if [ ! -d ImHex ]; then
     mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps/
     cp ../resources/icon.svg $HOME/.local/share/icons/hicolor/scalable/apps/imhex.svg
 fi
-cd $prevdir
+cd "$prevdir" || exit 1
