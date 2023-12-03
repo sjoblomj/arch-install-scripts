@@ -14,7 +14,7 @@ opening input devices, it acts as a Wayland client. Notable programs that do not
 Xwayland are GIMP 2.x and the Jetbrains IDEs (https://youtrack.jetbrains.com/issue/JBR-3206)')
 if [ "${res}" = "${alt1}" ]; then
     xwayland=""
-    sudo pacman -S --needed xwayland
+    sudo pacman -S --needed xorg-xwayland
 fi
 
 sudo pacman -S --needed git jq
@@ -41,6 +41,7 @@ download_latest_release_from_github() {
     tmpfile=$(mktemp)
     latestreleasename=$(echo "$latestreleasedata" | jq -r '.name')
     path="$extract_path/$latestreleasename"
+
     mkdir -p "$path"
     curl -L $(echo "$latestreleasedata" | jq -r '.tarball_url') -o "$tmpfile"
     tar xvf "$tmpfile" --directory="$path" --strip-components="$archive_directory_depth" &> /dev/null
@@ -57,6 +58,7 @@ mkdir -p $HOME/.config/labwc
 cd $HOME/code/arch-install-scripts/00_config
 cp autostart environment menu.xml rc.xml themerc-override $HOME/.config/labwc
 cp .zprofile $HOME/
+sed -i "s|./bin/labwc/build/labwc|./bin/labwc/build/labwc|.$labwc_path/build/labwc" $HOME/.zprofile
 
 
 # Status bar
