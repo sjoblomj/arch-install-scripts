@@ -17,6 +17,7 @@ if [ ! -d $HOME/bin/${product_dir}-* ]; then
     cp options_editor.xml "$datadir/options/editor.xml"
     cp options_editor-font.xml "$datadir/options/editor-font.xml"
     cp options_keymapFlags.xml "$datadir/options/keymapFlags.xml"
+    cp options_ui-datetime.xml "$datadir/options/ui-datetime.xml"
     cp options_linux_keymap.xml "$datadir/options/linux/keymap.xml"
     cp syzygy.xml "$datadir/keymaps"
 
