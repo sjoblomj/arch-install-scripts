@@ -9,6 +9,7 @@ read -p "Enter email (to use globally for git): " email
 git config --global user.name "${name}"
 git config --global user.email "${email}"
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global init.defaultBranch main
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.cp cherry-pick
