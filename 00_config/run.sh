@@ -25,8 +25,8 @@ sudo pacman -S --needed polkit
 download_latest_release_from_github() {
     local githubrepo="$1"
     local extract_path="$2"
-    local archive_directory_depth="$3"
 
+    local depth=0
     local path=""
     local latestreleasedata=""
     local latestreleasename=""
@@ -44,12 +44,16 @@ download_latest_release_from_github() {
 
     mkdir -p "$path"
     curl -L $(echo "$latestreleasedata" | jq -r '.tarball_url') -o "$tmpfile"
-    tar xvf "$tmpfile" --directory="$path" --strip-components="$archive_directory_depth" &> /dev/null
+    depth=$(tar tf "$tmpfile" | awk -F/ '{ if($0 != "") print $0 }' | grep -o -n '/' | cut -d : -f 1 | uniq -c | awk '{print $1}' | sort | uniq | head -n 1)
+    if [ -z "$depth" ]; then
+        depth=0;
+    fi
+    tar xvf "$tmpfile" --directory="$path" --strip-components="$depth" &> /dev/null
     rm "$tmpfile"
     echo "$path"
 }
 
-labwc_path=$(download_latest_release_from_github "labwc/labwc" "$HOME/bin/labwc" 1)
+labwc_path=$(download_latest_release_from_github "labwc/labwc" "$HOME/bin/labwc")
 
 cd "$labwc_path"
 meson setup "${xwayland}" build/
