@@ -62,7 +62,7 @@ mkdir -p $HOME/.config/labwc
 cd $HOME/code/arch-install-scripts/00_config
 cp autostart environment menu.xml rc.xml themerc-override $HOME/.config/labwc
 cp .zprofile $HOME/
-sed -i "s|./bin/labwc/build/labwc|./bin/labwc/build/labwc|.$labwc_path/build/labwc" $HOME/.zprofile
+sed -i "s|./bin/labwc/build/labwc|$labwc_path/build/labwc|" $HOME/.zprofile
 
 
 # Status bar
@@ -118,15 +118,19 @@ cp mako_config $HOME/.config/mako/config
 
 # Screen locking
 sudo pacman -S --needed swaylock swayidle
-git clone https://git.sr.ht/\~emersion/chayang $HOME/bin/chayang
-cd $HOME/bin/chayang
-meson setup build/
-ninja -C build/
-sudo cp build/chayang /usr/local/bin/
-git clone https://git.sr.ht/\~leon_plickat/wlopm $HOME/bin/wlopm
-cd $HOME/bin/wlopm
-make
-sudo make install
+if [ ! -d $HOME/bin/chayang ]; then
+    git clone https://git.sr.ht/\~emersion/chayang $HOME/bin/chayang
+    cd $HOME/bin/chayang
+    meson setup build/
+    ninja -C build/
+    sudo cp build/chayang /usr/local/bin/
+fi
+if [ ! -d $HOME/bin/wlopm ]; then
+    git clone https://git.sr.ht/\~leon_plickat/wlopm $HOME/bin/wlopm
+    cd $HOME/bin/wlopm
+    make
+    sudo make install
+fi
 
 
 # Mouse speed
