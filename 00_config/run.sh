@@ -133,6 +133,31 @@ if [ ! -d $HOME/bin/wlopm ]; then
 fi
 
 
+# Screen resolution
+change=1
+cmd=""
+while [ $change -eq 1 ]; do
+    alt1="Yes, change screen resolution"
+    alt2="No, keep current screen resolution"
+    res=$(printf "${alt1}\n${alt2}" | fzf --tac --margin=4 --border --border-label="Change screen resolution?")
+    if [ "${res}" = "${alt1}" ]; then
+        if [ ! -d $HOME/bin/wlr-randr ]; then
+            git clone https://git.sr.ht/\~emersion/wlr-randr $HOME/bin/wlr-randr
+            cd $HOME/bin/wlr-randr
+            meson build
+            ninja -C build
+        fi
+        echo ""
+        read -p "Enter screen scale factor: " factor
+        cmd="\$HOME/bin/wlr-randr/build/wlr-randr --output eDP-1 --scale $factor"
+        eval "$cmd"
+    else
+        change=0
+    fi
+done
+echo "$cmd" > $HOME/.zprofile
+
+
 # Mouse speed
 # Can be set **for all devices** by installing libinput-config
 # from https://gitlab.com/warningnonpotablewater/libinput-config/
