@@ -142,6 +142,7 @@ while [ $change -eq 1 ]; do
     res=$(printf "${alt1}\n${alt2}" | fzf --tac --margin=4 --border --border-label="Change screen resolution?")
     if [ "${res}" = "${alt1}" ]; then
         if [ ! -d $HOME/bin/wlr-randr ]; then
+            sudo pacman -S --needed jq
             git clone https://git.sr.ht/\~emersion/wlr-randr $HOME/bin/wlr-randr
             cd $HOME/bin/wlr-randr
             meson build
@@ -149,7 +150,8 @@ while [ $change -eq 1 ]; do
         fi
         echo ""
         read -p "Enter screen scale factor: " factor
-        cmd="\$HOME/bin/wlr-randr/build/wlr-randr --output eDP-1 --scale $factor"
+        output=$($HOME/bin/wlr-randr/build/wlr-randr --json | jq '.[].name' --raw-output)
+        cmd="\$HOME/bin/wlr-randr/build/wlr-randr --output $output --scale $factor"
         eval "$cmd"
     else
         change=0
