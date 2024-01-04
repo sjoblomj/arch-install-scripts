@@ -150,14 +150,19 @@ while [ $change -eq 1 ]; do
         fi
         echo ""
         read -p "Enter screen scale factor: " factor
-        output=$($HOME/bin/wlr-randr/build/wlr-randr --json | jq '.[].name' --raw-output)
-        cmd="\$HOME/bin/wlr-randr/build/wlr-randr --output $output --scale $factor"
+        cmd="\$HOME/bin/wlr-randr/build/wlr-randr --output \$(\$HOME/bin/wlr-randr/build/wlr-randr --json | jq '.[].name' --raw-output) --scale $factor"
         eval "$cmd"
     else
         change=0
     fi
 done
-echo "$cmd" > $HOME/.zprofile
+if [[ -n "$cmd" ]]; then
+    echo "" >> $HOME/.zprofile
+    echo "# Set scale factor after startup" >> $HOME/.zprofile
+    echo "startuptime=\$(date +%s)" >> $HOME/.zprofile
+    echo "while [[ \$((startuptime + 5)) -gt \$(date +%s) ]] && [[ -z \$LABWC_PID ]]; do sleep 0.1; done" >> $HOME/.zprofile
+    echo "$cmd" >> $HOME/.zprofile
+fi
 
 
 # Mouse speed
