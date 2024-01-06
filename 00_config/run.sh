@@ -145,8 +145,8 @@ while [ $change -eq 1 ]; do
             sudo pacman -S --needed jq
             git clone https://git.sr.ht/\~emersion/wlr-randr $HOME/bin/wlr-randr
             cd $HOME/bin/wlr-randr
-            meson build
-            ninja -C build
+            meson setup build/
+            ninja -C build/
         fi
         echo ""
         read -p "Enter screen scale factor: " factor
@@ -166,7 +166,21 @@ fi
 
 
 # Mouse speed
-# Can be set **for all devices** by installing libinput-config
-# from https://gitlab.com/warningnonpotablewater/libinput-config/
-# and then setting
-# echo "speed=2" | sudo tee /etc/libinput.conf
+alt1="Yes, change mouse speed"
+alt2="No, keep current mouse speed"
+res=$(printf "${alt1}\n${alt2}" | fzf --tac --margin=4 --border --border-label="Change mouse speed?" --header='
+Note that this will change the mouse speed for *all devices*.
+For this setting to take effect, a re-login must be performed.')
+if [ "${res}" = "${alt1}" ]; then
+    if [ ! -d $HOME/bin/libinput-config ]; then
+        git clone https://gitlab.com/warningnonpotablewater/libinput-config.git $HOME/bin/libinput-config
+        cd $HOME/bin/libinput-config
+        meson setup build/
+        cd build
+        ninja
+        sudo ninja install
+    fi
+    echo ""
+    read -p "Enter mouse speed factor: " factor
+    echo "speed=$factor" | sudo tee /etc/libinput.conf
+fi
