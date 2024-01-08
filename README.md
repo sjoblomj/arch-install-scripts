@@ -5,5 +5,5 @@ The user will be presented with several options on what to install through a con
 
 To use the script, run the following from a terminal:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sjoblomj/arch-install-scripts/main/install_script.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sjoblomj/arch-install-scripts/wayland/install_script.sh)"
 ```
