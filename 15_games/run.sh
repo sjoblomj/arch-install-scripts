@@ -3,8 +3,9 @@
 title="Install Games and configure them?"
 alt1="Install Zelda and Gamepad config"
 alt2="Install WarCraft II (through Wargus and Stratagus)"
+alt3="Install The Secret of Monkey Island"
 esc="Cancel"
-alts="${alt1}\n${alt2}\n${esc}"
+alts="${alt1}\n${alt2}\n${alt3}\n${esc}"
 
 while true; do
 	if [ "${alts}" = "${esc}" ]; then
@@ -20,6 +21,9 @@ while true; do
 	elif [ "${res}" = "${alt2}" ]; then
 	    alts=$(echo "${alts}" | sed "s/\\${alt2}\\\\n//g")
 	    ./warcraft.sh
+	elif [ "${res}" = "${alt3}" ]; then
+	    alts=$(echo "${alts}" | sed "s/\\${alt3}\\\\n//g")
+	    ./monkeyisland.sh
 	else
 	    exit 0
 	fi
