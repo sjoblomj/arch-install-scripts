@@ -10,6 +10,9 @@ if [ "$selection" != "" ]; then
         mkdir -p $HOME.local/share/icons/hicolor/scalable/apps
         curl https://upload.wikimedia.org/wikipedia/commons/e/e6/VLC_Icon.svg -o $HOME/.local/share/icons/hicolor/scalable/apps/vlc.svg
     fi
+    if [[ "$selections" =~ "lximage-qt" ]]; then
+        sudo pacman -S --needed qt5-imageformats kimageformats5
+    fi
     if [[ "$selections" =~ "evince" ]]; then
         if [ -f /usr/share/applications/org.gnome.Evince.desktop ] && [ ! -f /usr/share/applications/evince.desktop ]; then
             sudo cp /usr/share/applications/org.gnome.Evince.desktop /usr/share/applications/evince.desktop
