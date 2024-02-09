@@ -16,7 +16,7 @@ while true; do
 
 	if [ "${res}" = "${alt1}" ]; then
 	    alts=$(echo "${alts}" | sed "s/\\${alt1}\\\\n//g")
-	    ./install.sh texlive-core texlive-latexextra
+	    ./install.sh texlive-core texlive-latexextra texlive-langeuropean texlive-binextra texlive-formatsextra texlive-mathscience texlive-xetex
     elif [ "${res}" = "${alt2}" ]; then
 	    alts=$(echo "${alts}" | sed "s/\\${alt2}\\\\n//g")
 	    ./install.sh mupdf-tools
