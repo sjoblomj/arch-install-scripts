@@ -19,4 +19,14 @@ if [[ -z $ZSH ]]; then
 
     awk -v plugins="$plugins" -v bgnotify_func="${bgnotify_func}" -i inplace '{if ($0 ~ /^plugins=(.*)$/) print bgnotify_func "\nplugins=(" plugins ")"; else print $0}' $HOME/.zshrc
   fi
+
+  if [! -f $HOME/.zshaliases ] ; then
+    echo "alias l='ls -la'" >> $HOME/.zshaliases
+    echo "alias ll='ls -la'" >> $HOME/.zshaliases
+    echo "alias weather='curl wttr.in\?M'" >> $HOME/.zshaliases
+    echo "alias distory='vim $HOME/.zsh_history'" >> $HOME/.zshaliases
+  fi
+  if ! grep -sq "source \$HOME/.zshaliases" $HOME/.zshrc ; then
+    echo "source \$HOME/.zshaliases" >> $HOME/.zshrc
+  fi
 fi
