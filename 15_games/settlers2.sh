@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d $HOME/games/settlers2 ]; then
-    mkdir -p $HOME/games/settlers2
+    mkdir -p $HOME/games/settlers2/share/s25rttr/S2
 
     sudo pacman -S --needed unzip
     sudo pacman -S --needed sdl2 sdl2_mixer
