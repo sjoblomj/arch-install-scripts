@@ -21,6 +21,7 @@ if [ ! -d ImHex ]; then
         -DCMAKE_CXX_FLAGS="-fuse-ld=lld"          \
         -DCMAKE_OBJC_COMPILER_LAUNCHER=ccache     \
         -DCMAKE_OBJCXX_COMPILER_LAUNCHER=ccache   \
+        -DIMHEX_USE_GTK_FILE_PICKER=ON            \
         ..
     sudo make -j 4 install
 
