@@ -24,7 +24,8 @@ if [ "$selections" != "" ]; then
         fi
     fi
     if [[ "$selections" =~ "transmission-qt" ]]; then
-        curl https://upload.wikimedia.org/wikipedia/commons/4/46/Transmission_Icon.svg -o /usr/share/icons/hicolor/scalable/apps/transmission.svg
+        sudo pacman -S --needed qt6-wayland
+        sudo curl https://upload.wikimedia.org/wikipedia/commons/4/46/Transmission_Icon.svg -o /usr/share/icons/hicolor/scalable/apps/transmission.svg
         sudo curl https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Transmission_Icon.svg/48px-Transmission_Icon.svg.png -o /usr/share/icons/hicolor/48x48/apps/transmission.png
         sudo gtk-update-icon-cache /usr/share/icons/hicolor
     fi
