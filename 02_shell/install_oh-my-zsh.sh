@@ -1,5 +1,12 @@
 #!/bin/bash
 
+function add_alias() {
+  alias="$1"
+  if ! grep -sq "$alias" $HOME/.zshaliases ; then
+    echo "$alias" >> $HOME/.zshaliases
+  fi
+}
+
 sudo pacman -S --needed zsh zsh-completions
 if [[ -z $ZSH ]]; then
   sudo chsh -s $(which zsh) # Change default shell for root user
@@ -20,12 +27,10 @@ if [[ -z $ZSH ]]; then
     awk -v plugins="$plugins" -v bgnotify_func="${bgnotify_func}" -i inplace '{if ($0 ~ /^plugins=(.*)$/) print bgnotify_func "\nplugins=(" plugins ")"; else print $0}' $HOME/.zshrc
   fi
 
-  if [! -f $HOME/.zshaliases ] ; then
-    echo "alias l='ls -la'" >> $HOME/.zshaliases
-    echo "alias ll='ls -la'" >> $HOME/.zshaliases
-    echo "alias weather='curl wttr.in\?M'" >> $HOME/.zshaliases
-    echo "alias distory='vim $HOME/.zsh_history'" >> $HOME/.zshaliases
-  fi
+  add_alias "alias l='ls -la'"
+  add_alias "alias ll='ls -la'"
+  add_alias "alias weather='curl wttr.in\?M'"
+  add_alias "alias distory='vim $HOME/.zsh_history'"
   if ! grep -sq "source \$HOME/.zshaliases" $HOME/.zshrc ; then
     echo "source \$HOME/.zshaliases" >> $HOME/.zshrc
   fi
