@@ -7,6 +7,9 @@ if [ "$selections" != "" ]; then
     if [[ "$selections" =~ "firefox" ]]; then
         ./arkenfox.sh
     fi
+    if [[ "$selections" =~ "chromium" ]]; then
+        sudo sed -i "s|Exec=/usr/bin/chromium|Exec=/usr/bin/chromium --enable-features=UseOzonePlatform --ozone-platform=wayland|g" /usr/share/applications/chromium.desktop
+    fi
     mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps
     for s in $selections; do
         filename=${s%-*}
