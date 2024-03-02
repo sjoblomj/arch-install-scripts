@@ -3,17 +3,15 @@
 prevdir=$(pwd)
 
 cd $HOME/bin
-if [ ! -d qjoypad ]; then
-    git clone https://github.com/panzi/qjoypad
-    mkdir -p qjoypad/build
-    cd qjoypad/build
-    sudo pacman -S --needed qt5-tools
-    cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
-    make -j`nproc`
-    sudo make install
+if [ ! -d antimicrox ]; then
+    git clone https://github.com/AntiMicroX/antimicrox.git
+    mkdir -p antimicrox/build
+    cd antimicrox/build
+    sudo pacman -S --needed gcc cmake extra-cmake-modules qt5-tools sdl2 itstool gettext
+    sudo pacman -S --needed libxi libxtst libx11 # Are these needed for Wayland builds?
+    cmake ..
+    cmake --build .
     cd $prevdir
-    mkdir -p $HOME/.config/qjoypad4
-    cp snes.lyt $HOME/.config/qjoypad4
 fi
 cd $prevdir
 
