@@ -2,22 +2,20 @@
 
 prevdir=$(pwd)
 
-cd $HOME/bin
-if [ ! -d antimicrox ]; then
-    git clone https://github.com/AntiMicroX/antimicrox.git
-    mkdir -p antimicrox/build
-    cd antimicrox/build
+if [ ! -d $HOME/bin/antimicrox ]; then
+    mkdir -p $HOME/.config/antimicrox
+    cp gamepad.joystick.amgp antimicrox_settings.ini $HOME/.config/antimicrox
+
+    git clone https://github.com/AntiMicroX/antimicrox.git $HOME/bin/antimicrox
+    mkdir -p $HOME/bin/antimicrox/build
+    cd $HOME/bin/antimicrox/build
     sudo pacman -S --needed gcc cmake extra-cmake-modules qt5-tools sdl2 itstool gettext
     sudo pacman -S --needed libxi libxtst libx11 # Are these needed for Wayland builds?
     cmake -DWITH_X11=OFF -DCMAKE_INSTALL_PREFIX=/usr ..
     cmake --build .
     sudo cmake install DESTDIR=/
     cd $prevdir
-
-    mkdir -p $HOME/.config/antimicrox
-    cp gamepad.joystick.amgp antimicrox_settings.ini $HOME/.config/antimicrox
 fi
-cd $prevdir
 
 if [ ! -d $HOME/games/zelda-a_link_to_the_past ]; then
     mkdir -p $HOME/games/zelda-a_link_to_the_past
