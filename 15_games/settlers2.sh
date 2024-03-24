@@ -16,4 +16,10 @@ if [ ! -d $HOME/games/settlers2 ]; then
     echo ""
     echo "Enter password to unzip Settlers II"
     unzip s2g.zip -d $HOME/games/settlers2/share/s25rttr/S2
+
+    mkdir -p $HOME/.s25rttr
+    cp settlers2_config $HOME/.s25rttr/CONFIG.INI
+    mkdir -p $HOME/.local/share/icons/hicolor/scalable/apps
+    cp settlers2.svg $HOME/.local/share/icons/hicolor/scalable/apps
+    sudo cp settlers2.desktop /usr/share/applications/s25client.desktop
 fi

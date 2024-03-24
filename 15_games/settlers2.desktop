@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Settlers II Return to the Roots
+Exec=sh -c 'cd $HOME/games/settlers2/bin; ./rttr.sh'
+Terminal=false
+Type=Application
+Icon=settlers2
+Comment=Settlers II
+Categories=Game;
+StartupWMClass=settlers2;
